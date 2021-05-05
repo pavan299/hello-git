@@ -1,0 +1,147 @@
+git init
+git config --global user.name="pavan"
+git config --global user.email="pavanrdbms@gmail.com"
+
+git config --local user.name "pavan"
+git conifg --local user.email "pavanrdbms@gmail.com"
+
+
+
+git status
+git add . or filename
+git commit -m "commit message"
+git push origin master
+git pull
+git checkout APRIL
+git merge march
+git log
+git branch
+git branch -a/-r
+
+
+Note:
+====
+-->Git doesn't give any importance to folders which are in empty.
+Folder -->SRC
+ex:
+$git status
+On Branch master
+nothing to commit, working tree clean
+
+-->In case your folder has some files, YES it will consider the
+importance.
+Folder -->SRC/readme.txt( under folder we have created the one file)
+
+ex:
+%git status
+On branch master
+untracked files:
+(user "git add <file>..." to include in what will be committed)
+
+     SRC/
+
+nothing added to commit but untracked files presemt (use "git add" to track)
+
+Note:-
+empty folders cann't be added to git..
+git operates files level not folder level...
+
+$git add SRC/ or git add SRC/readme.txt or git add . (anything is fine)
+
+$git add SRC/
+
+in this what happens is every file which present in SRC added in to git.
+becasue git operates files level not folder level
+
+$git status
+on branch master
+Changes to be committed:
+(use "git reset HEAD <file>..." to unstage)
+
+     new file:  SRC/readme.txt
+
+$git commit -m "added source folder"
+
+$git log -->this output will give longer format
+
+$git log --oneline -->this output will give short format
+                      commit id it will print only first 6 charcters.
+
+Note:
+Every commit id is Unique.
+
+-->In git what type of files can i add ?
+Git doesn't know about any kind of files,you can add anything..
+Only git knows wheather it is File or Folder..
+
+-->What is Untracked files ?
+The files which we newly added. which was not present is the git.
+so as per git terminology the file becomes Untrack, then it is never part of Git.
+
+The new change made to the working directory which was never part of git repo that is called Untrcked file.
+
+$git add --help (you will get manual help page)
+
+$git add -A/. ( It will add all changes(existing and newly added changes to working directory))
+
+$git add -U ( it will update modified changes)
+
+
+$git reset --hard{This is Super power} (this undo opertaion for modified files but not new files)
+
+
+$git reset --hard (Removes changes from staging & working tree (modified))
+
+Remove all untracked files from git
+$git clean -fd <dirpath>
+
+Remove change made to a file in working tree
+$git checkout -- <filepath>
+
+Remove change added to staging area
+$git reset <filepath>
+
+$git cat-file -p commitid
+
+$git log --oneline --graph
+
+$git checkout -b branchnmae -->this is will do it will create branch and it will checkout the same.
+
+$git checkout branchname -->this is will do checkout the existing branch
+
+
+Note:-
+Whenever you want a speific commit from any branch into some branch then we do cherry-pick
+So cherry picking is all about picking commits and then bringing into the other branches..
+
+git cherry-pick commitid(not branch)
+
+->Merge is merging the hole development history into other branch...
+
+
+At any ponit, if you think that you don't want to merge, you don't want to cherry-pick and you don't want to do rebase, because
+there is conflicts. so you can always execute --Abort
+ex:- git merge --Abort, will abort ,but for that merge has to stop. if merge is done, you can't Abort....
+
+Similarlly, while doing rebase you are seeing some conflicts, you don't know how to fix for that, so you can always use --Abort command 
+git rebase --Abort
+
+Same steps for cherry-pick too..
+
+Abort it will stop the operation and it will take you to git process to how it was earlier.
+But that is done when something failed when merge conflicts araises..But if everything is successful after that you execute
+git merge --Abort  nothing is going to happen.
+
+
+
+
+In git. you can work on one branch at a time. 
+always remember whenever you moving branches..please commit whatever you have.
+because if don't commit those changes it will travel across branches..finally it will get confuse..
+
+whenever you shifting around branches enusre that you don't have anything in working tree and staging tree.
+if you hava any..please commit it or revert back. 
+
+.git folder-->exposed over http or https or ssh protocal. so that other people can view .
+the server is doing exposing the your .git folder. so that other people can view it.
+since it is server, it will give you user authentication to login.that's it.
